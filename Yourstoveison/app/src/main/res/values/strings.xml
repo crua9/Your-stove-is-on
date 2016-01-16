@@ -3,6 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <String name="stove_on">Your stove and/or oven is on</String>
-    <string name="stove_off">Your stove and/or oven is off</string>
+    <string name="stove">Off</string>
+    <string name="title_activity_abc">abc</string>
 </resources>
