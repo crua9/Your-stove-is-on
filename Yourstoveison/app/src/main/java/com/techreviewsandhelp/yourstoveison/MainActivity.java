@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity {
         mStove.setOnClickListener(listener);
         mHelp.setOnClickListener(help);
     }
-    
+
     @Override
     protected void onStart(){
         super.onStart();
