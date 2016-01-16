@@ -40,13 +40,7 @@ public class MainActivity extends ActionBarActivity {
 
         nmanger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        //data
-        mShare = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
-        mEditor = mShare.edit();
-       String edit = mShare.getString(Stove_S, "");
-        mStove.setText(edit);
 
-        //Toast.makeText(MainActivity.this, edit, Toast.LENGTH_SHORT).show();
 //stove button
     View.OnClickListener listener = new View.OnClickListener(){
       public void onClick(View v){
@@ -58,7 +52,6 @@ public class MainActivity extends ActionBarActivity {
             //save
             mEditor.putString(Stove_S, mStove.getText().toString());
           mEditor.apply();
-         // Toast.makeText(MainActivity.this, Stove_S, Toast.LENGTH_SHORT).show();
           }};
         //help button
         View.OnClickListener help = new View.OnClickListener(){
@@ -70,7 +63,7 @@ public class MainActivity extends ActionBarActivity {
         mStove.setOnClickListener(listener);
         mHelp.setOnClickListener(help);
     }
-    //data
+    
     @Override
     protected void onStart(){
         super.onStart();
@@ -78,7 +71,12 @@ public class MainActivity extends ActionBarActivity {
                 .getDefaultSharedPreferences(this);
         final String stove = preferences.getString(Data.Stove,
                 Data.default_Stove);
-        mStove.setText(stove);
+
+       //load
+        mShare = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
+        mEditor = mShare.edit();
+        String edit = mShare.getString(Stove_S, "");
+        mStove.setText(edit);
     }
 }
 
